@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .main{
+            width: 700px;
+            margin: auto;
+            margin-top: 50px;
+            padding: 30px;
+        }
+        .subMain{
+            display: flex;
+            gap: 50px;
+            padding: 20px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .subMain>div{
+            /* width: 70px; */
+            padding: 50px;
+            border-radius: 50%;
+            /* height: 70px; */
+            text-align: center;
+           
+         padding-top: 10px;
+         font-weight: bold;
+         justify-content: center;
+         align-items: center;
+        }
+        div{
+            /* width: 100px; */
+            text-align: center;
+            font-size: 25px;
+         
+           margin: auto;
+           margin-bottom: 20px;
+        }
+        #winner{
+            margin: auto;
+            width: 250px;
+            background-color: rgb(21, 229, 84);
+            padding: 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 50px;
+        }
+        button{
+            background-color:red;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div  id="winner" ></div>
+   <div class="subMain">
+    <div id="member-1"></div>
+    <div id="member-2"></div>
+    <div id="member-3"></div>
+   </div>
+    <button id="roll" onclick="myfunction()">ROLL THE DICE</button>
+    </div>
+</body>
+</html>
+<script>
+function myfunction(){
+    
+    var first= Math.floor(Math.random() * 6) + 1;
+    var second= Math.floor(Math.random() * 6) + 1;
+    var third= Math.floor(Math.random() * 6) + 1;
+
+
+   var mem1=document.querySelector("#member-1")
+   mem1.innerHTML=first
+   
+
+   var mem2=document.querySelector("#member-2")
+   mem2.innerHTML=second
+   var mem3=document.querySelector("#member-3")
+   mem3.innerHTML=third
+
+    if(first>second && first>third  && second>third){
+        document.querySelector("#winner").innerHTML="member-A is winner"
+        mem1.style.backgroundColor="green"
+        mem2.style.backgroundColor="yellow"
+        mem3.style.backgroundColor="red"
+
+    }
+    else if(first>second && first>third  && third>second){
+        document.querySelector("#winner").innerHTML="member-A is winner"
+        mem1.style.backgroundColor="green"
+        mem2.style.backgroundColor="red"
+        mem3.style.backgroundColor="yellow"
+
+    }else if(second>first && second>third && first>third){
+        
+        document.querySelector("#winner").innerHTML="member-B is winner"
+        mem2.style.backgroundColor="green"
+        mem1.style.backgroundColor="yellow"
+        mem3.style.backgroundColor="red"
+
+    }
+    else if(second>first && second>third && third>first){
+        
+        document.querySelector("#winner").innerHTML="member-B is winner"
+        mem2.style.backgroundColor="green"
+        mem3.style.backgroundColor="yellow"
+        mem1.style.backgroundColor="red"
+
+    }else if(third>first && third>second && first>second){
+        document.querySelector("#winner").innerHTML="member-C is winner"
+        mem3.style.backgroundColor="green"
+        mem1.style.backgroundColor="yellow"
+        mem2.style.backgroundColor="red"
+
+    }
+    else if(third>first && third>second && second>first){
+        document.querySelector("#winner").innerHTML="member-C is winner"
+        mem3.style.backgroundColor="green"
+        mem1.style.backgroundColor="red"
+        mem2.style.backgroundColor="yellow"
+
+    }else if(first==second){
+        document.querySelector("#winner").innerHTML="draw"
+        mem1.style.backgroundColor="blue"
+        mem2.style.backgroundColor="blue"
+        mem3.style.backgroundColor="pink"
+    }
+    else if(first==third){
+        document.querySelector("#winner").innerHTML="draw"
+        mem1.style.backgroundColor="blue"
+        mem3.style.backgroundColor="blue"
+        mem2.style.backgroundColor="pink"
+    }else if(second==third){
+        document.querySelector("#winner").innerHTML="draw"
+        mem1.style.backgroundColor="pink"
+        mem2.style.backgroundColor="blue"
+        mem3.style.backgroundColor="blue"
+    }
+
+}
+</script>
