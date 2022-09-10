@@ -39,6 +39,39 @@
 
     //---------------------------//
 
+    var web17={
+        name:"mamata",
+        roll_no:0821,
+        email:"abc@gmail.com",
+        mobile_no:9874563210,
+    }
+
+    var a=Object.create(web17)
+   console.log(a)
+
+
+
+    //-----------------------------//
+
+    function shoes(b,p){
+        this.brand=b,
+        this.seller="flipcart",
+        this.price=p
+    }
+
+    
+    
+    shoes.prototype.coupen=  function () {
+      console.log(`20% discount on ${this.seller} products`);
+  };
+  var s1=new shoes("nike",3000);
+  console.log("s1:",s1)
+  s1.coupen()
+
+
+
+    //------------------------------//
+
   function Tata(){
     this.engine="Flat Engine",
     this.stearing=1,
