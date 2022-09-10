@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+            text-align: center;
+            
+        }
+        nav{
+        background-color: aqua;
+        width: 100%;
+        display: flex;
+        gap: 50px;
+        padding: 20px;
+        font-size: 20px;
+       
+    }
+    nav >a{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+       padding-left: 50px;
+    }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="ecom1.html">Form</a>
+        <a href="ecom2.html">products</a>
+    </nav>
+    <div id="container"></div>
+</body>
+</html>
+
+
+<script>
+
+var arr11=JSON.parse(localStorage.getItem("Products"))
+
+
+arr11.map(function(elem,index){
+    var box=document.createElement("div")
+    box.style.boxShadow="rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px";
+     box.style.padding="10px"
+
+
+    var p1=document.createElement("p")
+    p1.innerText=elem.Product_name
+
+    var p2=document.createElement("p")
+    p2.innerText=elem.Category
+
+    var image=document.createElement("img")
+    image.src=elem.Image_url
+    image.style.width="250px"
+
+    var p3=document.createElement("p")
+    p3.innerText=elem.Gender
+
+
+    var p4=document.createElement("p")
+    p4.innerText=elem.soldOrNot
+
+    var button=document.createElement("button")
+    button.innerText="Remove";
+    button.style.fontSize="20px"
+    button.addEventListener("click",function(){
+        removeitem1(elem,index)
+    })
+
+    var button1=document.createElement("button")
+    button1.innerHTML="sold"
+    button1.style.marginLeft="50px"
+    button1.style.padding="5px"
+    button1.style.fontSize="20px"
+    
+
+
+     
+    
+
+    box.append(image,p1,p2,p3,p4,button,button1)
+    document.querySelector("#container").append(box)
+    
+
+})
+
+function removeitem1(elem,index){
+    arr11.splice(index,1);
+    console.log(arr11);
+    localStorage.setItem("Products", JSON.stringify(arr11));
+    window.location.reload();
+}
+
+</script>
