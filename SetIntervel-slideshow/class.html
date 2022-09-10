@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #data{
+            width: 80%;
+            
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            margin-top: 50px;
+            gap: 50px;
+        }
+        .main{
+            width: 80%;
+            margin: auto;
+        }
+        .top{
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="top">
+            <h1 id="timer"></h1>
+        <button onclick="stop()">stop</button>
+    
+        <input type="url" id="url" />
+        <button onclick="storeImage()">submit URL</button>
+        </div>
+        <div id="data">
+    
+        </div>
+    </div>
+</body>
+</html>
+<script>
+var h1=document.getElementById("timer")
+
+var i=0;
+ var id=setInterval(function(){
+    h1.innerText=i;
+    i++
+},1000);
+
+
+function stop(){
+clearInterval(id)
+
+}
+
+
+//======================================================//
+
+function storeImage(){
+    let image=document.getElementById("url").value
+    
+
+    let imagearr=JSON.parse(localStorage.getItem("images")) || []
+
+    imagearr.push(image)
+
+    localStorage.setItem("images",JSON.stringify(imagearr))
+    console.log(imagearr)
+    document.getElementById("url").value=null
+    window.location.reload()
+
+}
+
+let imagearr=JSON.parse(localStorage.getItem("images"))
+console.log(imagearr)
+
+   imagearr.map((e)=>{
+      let img=document.createElement("img")
+      img.style.width="300px"
+      img.style.height="250px"
+      img.src=e
+   document.getElementById("data").append(img)
+  
+  })
+
+</script>
