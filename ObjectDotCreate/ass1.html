@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    const tata={
+        engine:"Flat Engine",
+        stearing:1,
+        mirrors:2,
+        seats:6
+
+    }
+
+
+    var a1=Object.create(tata)
+    console.log("nnn",a1)
+    a1.color="red"
+    a1.wheels=4
+    a1.brand="maruti"
+
+
+    var a2=Object.create(tata)
+    a2.color="white"
+    a2.wheels=4
+    a2.brand="audi"
+
+
+    console.log(a1)
+    console.log(a2)
+
+
+    //---------------------------//
+
+  function Tata(){
+    this.engine="Flat Engine",
+    this.stearing=1,
+    this.mirrors=2,
+    this.seats=6
+  }
+
+var A1=new Tata()
+A1.color="blue"
+A1.brand="honda"
+A1.wheels=2
+
+console.log(A1)
+
+</script>
