@@ -1,0 +1,74 @@
+#_food>div>img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 40%;
+
+
+}
+h2{
+    color: red;
+    margin-left: 20px;
+    font-size: 30px;
+}
+#submit{
+    width: 100px;
+    height: 30px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+
+}
+#submit:hover{
+    background-color: rgb(220, 14, 14);
+}
+
+#_food{
+   
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    align-items: center;
+    margin-left: 20%;
+    margin-top: -200px;
+    
+}
+#_food>div{
+    display: grid;
+    width: 400px;
+    height: 400px;
+    padding: 10px;
+}
+#show_time{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+#upper{
+    background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+    height: 110px;
+    text-align: center;
+    justify-content: center;
+   
+}
+h1{
+  
+    margin-top: -6px;
+    font-size: 50px;
+
+}
+body{
+    background-color: black;
+}
+form{
+    color: white;
+    border: 5px solid ;
+    width: 160px;
+    padding: 10px;
+    line-height: 30px;
+    border-radius: 20px;
+    font-size: 20px;
+
+}
