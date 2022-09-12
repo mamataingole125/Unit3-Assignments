@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #movies{
+            border: 1px solid;
+            height: 260px;
+            width: 270px;
+            border-top: none;
+            overflow: scroll;
+            background-color: rgb(32, 7, 55);
+            color: white;
+            font-size: 20px;
+         margin-left: 700px;
+         
+        }
+        #query{
+            width: 250px;
+            height: 35px;
+            border: 5px solid rgb(5, 5, 13);
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 700px;
+            margin-top: -30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hotstar</h1>
+   
+       
+    <!-- <input oninput="searchMovies()" type="text" id="query">    -->
+    <!-- <input oninput="main()" type="text" id="query">     -->
+    <input oninput="debounce(main,1000)" type="text" id="query">    
+    <div id="movies"></div>
+
+
+  </div>
+</body>
+</html>
+<script>
+    
+let movies_div=document.getElementById("movies")
+
+let id;
+
+async function searchMovies(){
+   try{
+    const query=document.getElementById("query").value
+    let res=await fetch(`http://www.omdbapi.com/?apikey=36cc3445&s=${query}`)
+
+  let data=await res.json();
+  console.log(data);
+ const movies=data.Search
+//   appendMovie(data.Search);
+    return movies
+
+   }catch(err){
+    console.log(err);
+   }
+}
+
+
+function appendMovie(data){
+//    for some letter data is not there so to fix that we used this
+// if(data==undefined){
+//     return false
+// }
+// this is used because previous data is getting collected with current data  so to fix that we used this
+movies_div.innerHTML=null;
+
+
+
+data.forEach(function(e){
+    let p=document.createElement("p");
+    p.innerText=e.Title;
+
+    movies_div.append(p);
+
+});
+}
+
+// we wil assemble them in one function
+
+async function main(){
+    let data=await searchMovies();
+    if(data===undefined){
+    return false
+}
+
+     appendMovie(data)
+}
+
+// Debouncing
+
+function debounce(func,delay){
+    if(id){
+        clearTimeout(id);
+    }
+id=setTimeout(function(){
+func();
+},delay)
+
+}
+</script>
+
+
+
+
+
+
+
+<!-- <body>
+    <h1>Hotstar</h1>
+    <input oninput="searchMovies()" type="text" id="query">   
+     
+    <div id="movies"></div>
+</body>
+</html>
+
+
+<script> -->
+<!-- // let movies_div=document.getElementById("movies")
+
+// 
+
+// async function searchMovies(){
+//    try{
+//     const query=document.getElementById("query").value
+//     let res=await fetch(`http://www.omdbapi.com/?apikey=36cc3445&s=${query}`)
+
+//   let data=await res.json();
+//   console.log(data);
+     const movies=data.Search
+//   appendMovie(movies);
+
+//    }catch(err){
+//     console.log(err);
+//    }
+// }
+
+
+// function appendMovie(data){
+// //    for some letter data is not there so to fix that we used this
+// // if(data==undefined){
+// //     return false
+// // }
+// // this is used because previous data is getting collected with current data  so to fix that we used this
+// movies_div.innerHTML=null;
+
+
+
+// data.forEach(function(e){
+//     let p=document.createElement("p");
+//     p.innerText=e.Title;
+
+//     movies_div.append(p);
+
+// });
+// } -->
