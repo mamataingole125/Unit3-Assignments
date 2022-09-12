@@ -1,0 +1,151 @@
+body{
+    /* background-image: url("https://c.tenor.com/MZaPBoXIwSQAAAAS/rain-bad-weather.gif"); */
+   background-color: aqua;
+    background-repeat: no-repeat;
+    background-size: 100% 
+   
+  }
+  #searchBox {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+  }
+  #cityName,
+  #submit {
+    font-size: xx-large;
+    border-radius: 10px;
+    text-align: center;
+  }
+  #container {
+    margin: auto;
+    margin-top: 20px;
+  }
+  #submit {
+    background-color: rgb(243, 13, 86);
+    color:white;
+    font-weight: bold;
+  }
+
+  #weatherForcastFor7Days{
+    width: 98%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;  
+    margin: auto;
+    margin-top:40px ;
+
+
+  }
+  .dailyUpdate{
+    /* background-image: url("https://thumbs.gfycat.com/EmbellishedAchingGermanshepherd-size_restricted.gif"); */
+   background-image: url("https://c.tenor.com/yJY8H1AtS2sAAAAM/sun-waving.gif");
+    background-repeat: no-repeat;
+    background-size: 100% 700px;
+    padding: 30px;   
+    border-radius: 20px; 
+    color: rgb(11, 11, 11);
+    position: absolute;
+    width: 600px;
+    height: 540px;
+    line-height: 30px;
+
+  }
+  .dailyUpdate>p{
+    font-size: xx-large;
+    font-weight: bold;
+    
+  }
+  .dailyUpdate>h1:nth-child(1){
+    font-size: xx-large;
+    text-align: center;
+    /* color: white; */
+    color: rgb(11, 11, 11);
+  }
+  .dailyUpdate>h1:nth-child(2){
+    font-size: xx-large;
+
+    color: rgb(238, 13, 13);
+  }
+  iframe{
+    border-radius: 20px;
+    height: 600px;
+  }
+  #weatherContainer{
+visibility: hidden;
+border-radius: 10px;
+
+}
+
+#iconsContainer{
+
+
+width: 97%;    
+display: grid;
+grid-template-columns: 
+repeat(7,1fr);
+gap: 30px;
+border-radius: 10px;
+margin: auto;
+margin-left: 0;
+
+}
+
+.icons{
+display: inline-bock;
+float: left;
+height: 100%;
+width: 100%;
+margin: 20px;
+border: 5px solid rgb(48, 47, 47);
+border-radius: 10px;
+background-color: rgb(238, 238, 21);
+box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.image{
+height: 140px;
+width: 100%;
+}
+
+.imgClass{
+height: 140px;
+width: 100%;
+}
+
+.weather{
+margin: 5px;
+/* background-color: rgb(106, 215, 255); */
+border-radius: 5px;
+text-align: center;
+font-weight: bold;
+font-size: 30px;
+
+}
+
+.minValues{
+text-align: center;
+display: inline-block;
+border-radius: 5px;
+height: 25px;
+width: 85px;
+margin: 0;
+margin-bottom: 5px;
+margin-left: 5px;
+}
+
+
+.maxValues{
+text-align: center;
+display: inline-block;
+border-radius: 5px;
+height: 25px;
+width: 85px;
+margin: 0;
+margin-bottom: 5px;
+
+}
+.icons>p{
+font-size: x-large;
+margin-left: 11%;
+
+} 
